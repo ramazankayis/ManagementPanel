@@ -17,10 +17,13 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     // http isteği olmaz ise
+
+    //kullanıcı silme
     handleDeleteUser: (state, action) => {
       const userId = action.payload;
       state.users = state.users.filter((user) => user.id !== userId);
     },
+    //kullanıcı ekleme
     addUser: (state, action) => {
       const newUser = {
         ...action.payload,
@@ -29,6 +32,7 @@ export const userSlice = createSlice({
 
       state.users = [...state.users, newUser];
     },
+    // kullanıcı güncelleme
     updateUser: (state, action) => {
       const { id, name, username, email, website, address } = action.payload;
       const existingUser = state.users.find((user) => user.id === id);

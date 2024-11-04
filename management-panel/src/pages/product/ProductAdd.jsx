@@ -9,8 +9,8 @@ const ProductAdd = () => {
   const navigate = useNavigate();
   const [form] = Form.useForm();
   const onFinish = (values) => {
-    dispatch(addProduct(values));
-    navigate("/products");
+    dispatch(addProduct(values)); // dispatch sayasinde userSlice dan direk addProduct fonskiyona eriştik.
+    navigate("/products"); // products sayfasına yönlendirme
   };
 
   return (

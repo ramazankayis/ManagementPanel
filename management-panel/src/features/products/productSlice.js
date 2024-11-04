@@ -17,12 +17,15 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     // http isteği olmaz ise
+
+    //ürün silme
     handleDeleteProduct: (state, action) => {
       const productId = action.payload;
       state.products = state.products.filter(
         (product) => product.id !== productId
       );
     },
+    //ürün ekleme
     addProduct: (state, action) => {
       const newProduct = {
         ...action.payload,
@@ -31,6 +34,7 @@ export const userSlice = createSlice({
 
       state.products = [...state.products, newProduct];
     },
+    // ürün güncelleme
     updateProduct: (state, action) => {
       const { id, title, body } = action.payload;
       const existingProduct = state.products.find(

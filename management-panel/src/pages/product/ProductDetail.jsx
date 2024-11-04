@@ -6,10 +6,11 @@ import { Card, Typography } from "antd";
 const { Title, Paragraph } = Typography;
 
 const ProductDetail = () => {
-  const { id } = useParams();
-  const { products } = useSelector((store) => store.product);
+  const { id } = useParams(); //url den   useParams hooksyla direk "id " alırız
+  const { products } = useSelector((store) => store.product); //  useSelector hookyla product state ne ulaşırız 
   const product = products.find((product) => product.id === parseInt(id));
 
+  //ürün  kontrolü
   if (!product) {
     return <div>Ürün bulunamadı.</div>;
   }

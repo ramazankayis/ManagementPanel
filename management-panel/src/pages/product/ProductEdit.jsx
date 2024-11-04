@@ -8,13 +8,14 @@ const ProductEdit = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { products } = useSelector((store) => store.product);
+  const { products } = useSelector((store) => store.product); //  useSelector hookyla product state ne ulaşırız
 
   const [form] = Form.useForm();
   const product = products.find((product) => product.id === parseInt(id));
 
   useEffect(() => {
-    if (product) {      
+    // varolan ürün bilgilerini direk form daki inputlara ekleriz
+    if (product) {
       form.setFieldsValue({
         ...product,
         title: product.title,

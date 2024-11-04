@@ -24,6 +24,7 @@ const ProductList = () => {
   }, [dispatch, products.length]);
 
   useEffect(() => {   
+    // liste ki elemanlar için  arama işlemi includes ile  ve sıralama sort ile  yapar
     setFilteredProducts(
       products
         .filter(
@@ -39,11 +40,15 @@ const ProductList = () => {
     navigate(`/products/${record.id}`);
   };
 
+  // ürün silme fonk.
   const deleteProduct = (e, productId) => {
-    e.stopPropagation();
+    // e.stopPropagation() kullanarak, satırın onClick olayını tetiklemesini engeller.
+    //Bu sayede yalnızca "Delete" butonuna tıklandığında silme işlemi çalışır.
+    e.stopPropagation(); 
     dispatch(handleDeleteProduct(productId));
   };
 
+  //Bu fonksiyon, belirtilen key alanına göre benzersiz değerlerin bir listesini döndürür.
   const getUniqueValues = (data, key) => {
     return [...new Set(data.map((item) => item[key]))].map((value) => ({
       text: value,
