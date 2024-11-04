@@ -11,6 +11,8 @@ https://github.com/user-attachments/assets/a9ae2688-c4b2-4f24-b92e-fbc2b1141bc9
 First, run the development server:
 
 ```bash
+npm install
+# or
 npm run dev
 # or
 yarn dev
